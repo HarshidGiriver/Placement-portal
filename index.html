@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Placement Portal</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f7f6; color: #333; }
+        header { background-color: #0056b3; color: white; padding: 20px; text-align: center; border-radius: 5px; }
+        .container { margin-top: 20px; }
+        .drive-card { background: white; padding: 20px; margin-bottom: 15px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .company-name { color: #0056b3; font-size: 20px; font-weight: bold; }
+        .details { margin: 5px 0; }
+        .badge { background: #e74c3c; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>{{ portal.college_name }}</h1>
+    <h3>{{ portal.department }} - Placement Portal</h3>
+</header>
+
+<div class="container">
+    <h2>Active Placement Drives</h2>
+    {% for drive in drives %}
+    <div class="drive-card">
+        <div class="company-name">{{ drive.company }}</div>
+        <div class="details"><strong>Job Role:</strong> {{ drive.role }}</div>
+        <div class="details"><strong>Eligibility:</strong> {{ drive.eligibility }}</div>
+        <div class="details"><strong>Salary Package:</strong> {{ drive.package }}</div>
+        <div class="details"><strong>Application Deadline:</strong> <span class="badge">{{ drive.deadline }}</span></div>
+        <div class="details"><strong>Placement Contact:</strong> {{ drive.contact }}</div>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
